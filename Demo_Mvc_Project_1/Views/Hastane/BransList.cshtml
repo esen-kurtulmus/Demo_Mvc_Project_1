@@ -1,0 +1,22 @@
+﻿@using Demo_Mvc_Project_1.Models
+@model  List<Tbl_Branslar>
+@{
+    ViewBag.Title = "BransList";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Branş Adı</th>
+    </tr>
+    @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Bransid</td>
+            <td>@item.BransAD</td>
+
+        </tr>
+            }
+</table>
+

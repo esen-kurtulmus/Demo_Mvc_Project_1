@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HastaneProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HastaneProje.dbo.Tbl_Branslar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Tbl_Branslar">
+          <Key>
+            <PropertyRef Name="Bransid" />
+          </Key>
+          <Property Name="Bransid" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BransAD" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HastaneProje.dbo.Tbl_Hastalar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Tbl_Hastalar">
+          <Key>
+            <PropertyRef Name="Hastaid" />
+            <PropertyRef Name="HastaCinsiyet" />
+          </Key>
+          <Property Name="Hastaid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HastaAd" Type="varchar" MaxLength="10" />
+          <Property Name="HastaSoyad" Type="varchar" MaxLength="10" />
+          <Property Name="HastaTC" Type="char" MaxLength="11" />
+          <Property Name="HastaTelefon" Type="varchar" MaxLength="15" />
+          <Property Name="HastaSifre" Type="varchar" MaxLength="10" />
+          <Property Name="HastaCinsiyet" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HastaneProjeModelStoreContainer">
+          <EntitySet Name="Tbl_Branslar" EntityType="Self.Tbl_Branslar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tbl_Branslar].[Bransid] AS [Bransid], 
+    [Tbl_Branslar].[BransAD] AS [BransAD]
+    FROM [dbo].[Tbl_Branslar] AS [Tbl_Branslar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Tbl_Hastalar" EntityType="Self.Tbl_Hastalar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tbl_Hastalar].[Hastaid] AS [Hastaid], 
+    [Tbl_Hastalar].[HastaAd] AS [HastaAd], 
+    [Tbl_Hastalar].[HastaSoyad] AS [HastaSoyad], 
+    [Tbl_Hastalar].[HastaTC] AS [HastaTC], 
+    [Tbl_Hastalar].[HastaTelefon] AS [HastaTelefon], 
+    [Tbl_Hastalar].[HastaSifre] AS [HastaSifre], 
+    [Tbl_Hastalar].[HastaCinsiyet] AS [HastaCinsiyet]
+    FROM [dbo].[Tbl_Hastalar] AS [Tbl_Hastalar]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HastaneProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Branslar">
+          <Key>
+            <PropertyRef Name="Bransid" />
+          </Key>
+          <Property Name="Bransid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BransAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Hastalar">
+          <Key>
+            <PropertyRef Name="Hastaid" />
+            <PropertyRef Name="HastaCinsiyet" />
+          </Key>
+          <Property Name="Hastaid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HastaAd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HastaSoyad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HastaTC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="HastaTelefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="HastaSifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HastaCinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HastaneProjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Branslar" EntityType="Self.Tbl_Branslar" />
+          <EntitySet Name="Tbl_Hastalar" EntityType="Self.Tbl_Hastalar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HastaneProjeModelStoreContainer" CdmEntityContainer="HastaneProjeEntities">
+          <EntitySetMapping Name="Tbl_Branslar">
+            <EntityTypeMapping TypeName="HastaneProjeModel.Tbl_Branslar">
+              <MappingFragment StoreEntitySet="Tbl_Branslar">
+                <ScalarProperty Name="Bransid" ColumnName="Bransid" />
+                <ScalarProperty Name="BransAD" ColumnName="BransAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Hastalar">
+            <EntityTypeMapping TypeName="HastaneProjeModel.Tbl_Hastalar">
+              <MappingFragment StoreEntitySet="Tbl_Hastalar">
+                <ScalarProperty Name="Hastaid" ColumnName="Hastaid" />
+                <ScalarProperty Name="HastaAd" ColumnName="HastaAd" />
+                <ScalarProperty Name="HastaSoyad" ColumnName="HastaSoyad" />
+                <ScalarProperty Name="HastaTC" ColumnName="HastaTC" />
+                <ScalarProperty Name="HastaTelefon" ColumnName="HastaTelefon" />
+                <ScalarProperty Name="HastaSifre" ColumnName="HastaSifre" />
+                <ScalarProperty Name="HastaCinsiyet" ColumnName="HastaCinsiyet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
